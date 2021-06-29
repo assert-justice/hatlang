@@ -7,7 +7,7 @@ from hl_def import *
 def parse(src: str):
     lines = [line.split(' ') for line in src.splitlines()]
     program = []
-    labels = {}
+    labels = {'top': 0}
     has_error = False
     def error(message, num_line):
         nonlocal has_error
@@ -18,7 +18,7 @@ def parse(src: str):
         if not op in syn:
             error('unrecognized command \'{}\''.format(op), line_num)
             return
-        arg = syn[op]
+        arg = syn[op]["arg"]
         if arg == 'void':
             return [op, 0, '', line_num]
         elif len(line) < 2:
@@ -41,6 +41,8 @@ def parse(src: str):
     for line_num, line in enumerate(lines):
         if len(line[0]) == 0:
             continue
+        if line[0][0] == '-':
+            continue
         line = valid(line_num, line)
         if has_error:
             return
@@ -59,10 +61,11 @@ def parse(src: str):
     # resolve labels
     for i, inst in enumerate(program):
         op, _, s, ln = inst
-        if syn[op] == 'label':
+        if syn[op]['arg'] == 'label':
             if not s in labels:
                 error('label \'{}\' is not defined'.format(s), ln)
                 return
+            #print(labels[s])
             program[i][1] = labels[s]
     return program
             

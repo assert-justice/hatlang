@@ -1,0 +1,27 @@
+in
+label grow
+dec
+jez sum
+dupe
+jmp grow
+label sum
+sln
+in
+label loop
+swp
+dec
+jez out
+swp
+in
+add
+jmp loop
+label out
+del
+sln
+dec
+div
+out
+del
+del
+dump
+jmp top

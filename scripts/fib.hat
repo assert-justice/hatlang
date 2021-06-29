@@ -1,0 +1,23 @@
+- fib
+- prints fib values up to the inbox
+in
+zero
+inc
+dupe
+save a
+save b
+label loop
+dupe
+load a
+sub
+jlz top
+del
+load a
+dupe
+out
+load b
+dupe
+save a
+add
+save b
+jmp loop

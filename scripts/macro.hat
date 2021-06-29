@@ -1,0 +1,17 @@
+in
+label loop
+jez top
+dec
+rand
+print
+jgz out
+srt neg
+label out
+out
+jmp loop
+
+label neg
+zero
+dec
+mul
+ret

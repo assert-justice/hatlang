@@ -1,0 +1,58 @@
+#desc
+For every four numbers in the inbox outbox their average
+
+#pre
+lits 10 20 30 40
+out_all
+
+#pre
+lits -10 0 10 20 
+- avg: 5
+lits 90 -40 0 50 
+- avg: 25
+out_all
+
+#pre
+lit 40
+label loop
+rand
+out
+dec
+jgz loop
+
+#impl
+in
+in
+add
+in
+add
+in
+add
+zero
+inc
+inc
+inc
+inc
+div
+out
+jmp top
+
+#impl
+zero
+inc
+inc
+inc
+inc
+save a
+label loop
+in
+in
+add
+in
+add
+in
+add
+load a
+div
+out
+jmp loop

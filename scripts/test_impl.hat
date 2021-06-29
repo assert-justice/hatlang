@@ -1,0 +1,8 @@
+in
+label loop
+dupe
+out
+dec
+dupe
+jnz loop
+del

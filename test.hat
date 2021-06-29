@@ -1,8 +1,0 @@
-label top
-lit 5
-lit 10
-lits 2 4 57
-load a
-label loop
-add
-jmp loop

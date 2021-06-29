@@ -1,0 +1,19 @@
+- find the average of each four numbers in the inbox
+zero
+inc
+inc
+inc
+inc
+save a
+label loop
+in
+in
+add
+in
+add
+in
+add
+load a
+div
+out
+jmp loop

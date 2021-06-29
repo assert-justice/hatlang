@@ -1,0 +1,51 @@
+#desc
+For each number in the inbox outbox the Fibonacchi numbers that are less than or equal to that number
+
+#pre
+lit 10
+lit 20
+out_all
+
+#pre
+lit 40
+lit 10
+lit 0
+lit 20
+out_all
+
+#pre
+lit 4
+label loop
+jez done
+dec
+rand
+jgz out
+lit -1
+mul
+label out
+out
+jmp loop
+label done
+
+#impl
+in
+zero
+inc
+dupe
+save a
+save b
+label loop
+dupe
+load a
+sub
+jlz top
+del
+load a
+dupe
+out
+load b
+dupe
+save a
+add
+save b
+jmp loop

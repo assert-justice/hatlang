@@ -1,0 +1,31 @@
+#desc
+Average an arbitrary number of values. Read a value n from the inbox. Then average the next n values and outbox the result.
+
+#pre
+lits 2 10 20
+out_all
+
+#pre
+lits 4 10 5 -15 4
+lits 3 -40 -20 0
+out_all
+
+#impl
+in
+dupe
+save a
+zero
+label loop
+swp
+jez done
+dec
+swp
+in
+add
+jmp loop
+label done
+swp
+load a
+div
+out
+jmp top
